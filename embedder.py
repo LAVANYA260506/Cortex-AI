@@ -38,6 +38,7 @@ import sys
 import time
 import uuid
 from pathlib import Path
+from qdrant_client.models import NamedVector
 
 LOG_FORMAT = "%(asctime)s [%(levelname)s] embedder — %(message)s"
 POLL_INTERVAL = 10            # seconds between queue polls
@@ -195,12 +196,14 @@ def search(query: str, n_results: int = 5) -> list[dict]:
     client = get_qdrant()
 
     vector = encoder.encode([query])[0].tolist()
-    hits = client.search(
-        collection_name=COLLECTION_NAME,
-        query_vector=vector,
-        limit=n_results,
-        with_payload=True,
+        
+    results = client.query_points(
+        collection_name = COLLECTION_NAME,
+        query           = query_vector,
+        limit           = top_k,
+        with_payload    = True,
     )
+    hits = results.points
     return [
         {
             "node_id": h.payload.get("node_id", str(h.id)),
