@@ -62,11 +62,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 
-# app = FastAPI(
-#     title       = "Knowledge Graph Retriever API",
-#     description = "Ask questions against the local knowledge graph. Returns LLM-generated answers with source citations.",
-#     version     = "1.0.0",
-# )
+
 
 from contextlib import asynccontextmanager
 
