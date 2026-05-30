@@ -198,6 +198,18 @@ gemini
 
 Then inside the Gemini CLI session:
 
+---
+
+## Screenshots
+
+![Screenshot 2026-05-20 185552](assets/Screenshot 2026-05-20 185552.png)
+
+![Screenshot 2026-05-20 191039](assets/Screenshot 2026-05-20 191039.png)
+
+![Screenshot 2026-05-20 191645](assets/Screenshot 2026-05-20 191645.png)
+
+![Screenshot 2026-05-29 172807](assets/Screenshot 2026-05-29 172807.png)
+
 ```
 update        # index new files, generate summaries, link nodes
 lint          # audit and auto-fix the graph
